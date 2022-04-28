@@ -1,5 +1,13 @@
 import React from 'react'
 import { useState } from 'react';
+import { 
+    DivTareas,
+    SpanName
+} from './TareaStyled';
+import { IconContext } from "react-icons";
+import { RiDeleteBinLine } from 'react-icons/ri';
+import { FiEdit } from 'react-icons/fi';
+
 
 function Tarea({ tarea, id, filtrar, editar }) {
 
@@ -27,22 +35,30 @@ function Tarea({ tarea, id, filtrar, editar }) {
 
 
     return (
-        <div className='container-tareas'>
+        <>
             {
                 !confirmEdit ?
-                    <div className='tareas-row-add'>
-                        <span className='tareas-row-name'>{tarea}</span>
-                        <span className='tareas-row-edit' onClick={confirmEditarTarea}>Editar</span>
-                        <span className='tareas-row-delete' onClick={confirmBorrarTarea}>Borrar</span>
-                    </div>
+                    <DivTareas className='tareas-row-add'>
+                        <SpanName className='tareas-row-name'>{tarea}</SpanName>
+                        <span className='tareas-row-edit' onClick={confirmEditarTarea}>
+                            <IconContext.Provider value={{ color: 'black'}}>
+                                <FiEdit/>             
+                            </IconContext.Provider>
+                        </span>
+                        <span className='tareas-row-delete' onClick={confirmBorrarTarea}>
+                            <IconContext.Provider value={{ color: 'black'}}>
+                                <RiDeleteBinLine/>
+                            </IconContext.Provider>
+                        </span>
+                    </DivTareas>
                     :
                     <form className='form-edit' onSubmit={submitEdit}>
-                        <input className='form-edit-tarea' value={editarTarea} onChange={manejarEdit} />
+                        <input  className='form-edit-tarea' value={editarTarea} onChange={manejarEdit} />
                         <button className='form-edit-button'>Editar</button>
                     </form>
             }
 
-        </div>
+        </>
     )
 }
 

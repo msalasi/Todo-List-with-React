@@ -2,7 +2,10 @@ import React from 'react'
 import TodoForm from '../TodoForm/TodoForm';
 import Tarea from '../Tareas/Tarea';
 import { useState } from 'react';
-
+import { 
+  Div, 
+  DivContainerTareas 
+} from './MainTareaStyled';
 
 function MainTarea() {
   const [listaTareas, setListaTareas] = useState([]);
@@ -28,20 +31,22 @@ function MainTarea() {
   }
 
   return (
-    <div>
+    <Div className='main-container'>
       <TodoForm nuevaTarea={nuevaTarea} />
-      {
-        listaTareas.map((e, index) =>
-          <Tarea 
-            id={index} 
-            tarea={e}
-            filtrar={filtrarTarea} 
-            key={index} 
-            editar={actualizarTarea}
-          />
-        )
-      }
-    </div>
+      <DivContainerTareas className='container-tareas'>
+        {
+          listaTareas.map((e, index) =>
+            <Tarea 
+              id={index} 
+              tarea={e}
+              filtrar={filtrarTarea} 
+              key={index} 
+              editar={actualizarTarea}
+            />
+          )
+        }
+      </DivContainerTareas>
+    </Div>
   )
 }
 

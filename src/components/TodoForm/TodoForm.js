@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import Div from './TodoFormStyle.js';
+import { 
+    Div, 
+    Title, 
+    DivForm,
+    Input,
+    Form,
+    Button,
+    ValidationH3
+} from './TodoFormStyled.js';
 
 function TodoForm(props) {
     const [inputText, setInputText] = useState('');
@@ -23,15 +31,19 @@ function TodoForm(props) {
 
     return (
         <Div className='container-form' onSubmit={submitForm}>
-            <h1 className='container-form-h1'>what do you have planned for today</h1>
-            <form className='form'>
-                <input placeholder='Escribe aquí tu tarea' className='form-input' value={inputText} onChange={manejarFormulario} />
-                <button className='form-button'>Añadir</button>
-            </form>
+            <Title className='container-form-h1'>Todo App</Title>
+            <Form className='form'>
+                <DivForm className='subcontainer-form'>
+                    <Input placeholder='Añade aquí tu tarea' className='form-input' maxLength="30" type="text" value={inputText} onChange={manejarFormulario} />
+                    <Button className='form-button'>+</Button>
+                </DivForm>
+            </Form>
             {
                 !validacion &&
-                <h3 className='container-form-validacion'>¡No puedes añadir una tarea en blanco!</h3>
+                <ValidationH3 className='container-form-validacion'>¡Debes añadir una tarea!</ValidationH3>
             }
+
+
         </Div>
     )
 }
