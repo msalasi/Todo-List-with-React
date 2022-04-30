@@ -2,7 +2,10 @@ import React from 'react'
 import { useState } from 'react';
 import { 
     DivTareas,
-    SpanName
+    SpanName,
+    FormEdit,
+    InputEditArea,
+    ButtonEdit
 } from './TareaStyled';
 import { IconContext } from "react-icons";
 import { RiDeleteBinLine } from 'react-icons/ri';
@@ -41,21 +44,21 @@ function Tarea({ tarea, id, filtrar, editar }) {
                     <DivTareas className='tareas-row-add'>
                         <SpanName className='tareas-row-name'>{tarea}</SpanName>
                         <span className='tareas-row-edit' onClick={confirmEditarTarea}>
-                            <IconContext.Provider value={{ color: 'black'}}>
+                            <IconContext.Provider value={{ color: 'white'}}>
                                 <FiEdit/>             
                             </IconContext.Provider>
                         </span>
                         <span className='tareas-row-delete' onClick={confirmBorrarTarea}>
-                            <IconContext.Provider value={{ color: 'black'}}>
+                            <IconContext.Provider value={{ color: 'white'}}>
                                 <RiDeleteBinLine/>
                             </IconContext.Provider>
                         </span>
                     </DivTareas>
                     :
-                    <form className='form-edit' onSubmit={submitEdit}>
-                        <input  className='form-edit-tarea' value={editarTarea} onChange={manejarEdit} />
-                        <button className='form-edit-button'>Editar</button>
-                    </form>
+                    <FormEdit className='form-edit' onSubmit={submitEdit}>
+                        <InputEditArea  className='form-edit-tarea' value={editarTarea} onChange={manejarEdit} />
+                        <ButtonEdit className='form-edit-button'>Editar</ButtonEdit>
+                    </FormEdit>
             }
 
         </>

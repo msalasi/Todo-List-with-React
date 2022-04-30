@@ -5,13 +5,13 @@ export const Div = styled.div`
     text-align: center;
     align-items: center;
     margin: 25vh 0 1vh auto;
-    background-color: white;
+    background-color: #026eaf;
     border-radius: 10px;
     height: 16vh;
     width: 100%;
 `
 export const Title = styled.h1`
-    color: black;
+    color: white;
     font-family: monospace;
     text-align: left;
     width: 50%;

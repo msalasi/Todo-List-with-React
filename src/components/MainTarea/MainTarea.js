@@ -3,8 +3,7 @@ import TodoForm from '../TodoForm/TodoForm';
 import Tarea from '../Tareas/Tarea';
 import { useState } from 'react';
 import { 
-  Div, 
-  DivContainerTareas 
+  Div 
 } from './MainTareaStyled';
 
 function MainTarea() {
@@ -33,7 +32,7 @@ function MainTarea() {
   return (
     <Div className='main-container'>
       <TodoForm nuevaTarea={nuevaTarea} />
-      <DivContainerTareas className='container-tareas'>
+      
         {
           listaTareas.map((e, index) =>
             <Tarea 
@@ -45,7 +44,6 @@ function MainTarea() {
             />
           )
         }
-      </DivContainerTareas>
     </Div>
   )
 }

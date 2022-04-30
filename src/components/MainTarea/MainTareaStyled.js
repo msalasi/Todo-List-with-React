@@ -3,12 +3,19 @@ import styled from 'styled-components';
 
 export const Div = styled.div`
     text-align: center;
-    width: 100%;
     margin: 10vh auto 10vh auto;
-`
-export const DivContainerTareas = styled.div`
-    width: 100%;
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px 0;
+    width: 30%;
+
+
+    @media (max-width: 1024px) {
+        width: 60%;
+    }
+
+    @media (max-width: 640px) {
+        width: 80%;
+    }
+
+    @media (max-width: 425px) {
+        width: 100%;
+    }
 `
