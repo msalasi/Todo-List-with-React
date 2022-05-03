@@ -6,8 +6,11 @@ import {
     Input,
     Form,
     Button,
-    ValidationH3
+    ValidationH3,
+    TopSection
 } from './TodoFormStyled.js';
+import { FcTodoList } from 'react-icons/fc';
+import { IconContext } from "react-icons";
 
 function TodoForm(props) {
     const [inputText, setInputText] = useState('');
@@ -31,7 +34,13 @@ function TodoForm(props) {
 
     return (
         <Div className='container-form' onSubmit={submitForm}>
-            <Title className='container-form-h1'>Todo App</Title>
+            <TopSection className='container-top-section'>
+                <IconContext.Provider value={{size: '3em'}}>
+                    <FcTodoList/>
+                </IconContext.Provider>
+                <Title className='container-form-h1'>Todo App</Title>
+            </TopSection>
+           
             <Form className='form'>
                 <DivForm className='subcontainer-form'>
                     <Input placeholder='Añade aquí tu tarea' className='form-input' maxLength="30" type="text" value={inputText} onChange={manejarFormulario} />
